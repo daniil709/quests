@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'quest/base.html' %}
+{% load static %}
+{% block content %}
+<div class="album py-5 bg-dark">
+    <div class="container">
+        <h1 style="margin-bottom: 30px;">Каталог</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for quest in catalog_list %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="" class="card-img-top" alt="Изображение"
+                         style="width: 100%; height: 225px; object-fit: cover;">
+                    <div class="card-body">
+                        <h4>{{ quest.title }}</h4>
+                        <p class="card-text">{{ quest.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'quest:quest_detail' quest.pk %}"
+                                   class="btn text_button text-white" style="background-color: #4682B4;"
+                                   role="button">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

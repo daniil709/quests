@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    height: 960px;
+}
+
+.image {
+    height: 150px;
+    width: 200px;
+}
+
+.text {
+    height: 20%;
+}
+
+.button {
+    
+}

@@ -1,0 +1,24 @@
+{% extends 'quest/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="card text-center mb-3">
+        <div class="card-header">
+            <h2 class="card-title">{{ quest.title }}</h2>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ quest.description }}</p>
+            <p class="card-text">Стоимость: {{quest.event.cost}}</p>
+            <p class="card-text">Продолжительность: {{quest.event.duration}}</p>
+            <div>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.0}}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.1}}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.2}}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.3}}</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.4}}</button>
+            </div> <!--кнопки-->
+        </div>
+    </div>
+</div>
+{% endblock %}

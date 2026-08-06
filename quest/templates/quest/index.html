@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'quest/base.html' %}
+{% load static %}
+{% block content %}
+<div class="text-center mw-100 my-5">
+  <img src="{% static 'img/main_image.png' %}" class="rounded w-100 mh-100" alt="...">
+</div>
+<p class="lead mb-5">Ты сейчас на странице компании Квестополис и -- мы предоставляем вам большое количество
+    площадок, где вы можете отдохнуть вместе со своими
+    друзьями по всей России.
+
+    Также мы можем предложить вам квесты с категорией от 7 лет до 19 и даже выше.
+
+    Вы можете открыть каталог с нашими квестами, нажав на эту кнопку ниже.
+</p>
+<a href="{% url 'quest:catalog' %}"
+   class="btn btn-lg btn-light fw-bold border-white bg-white">Открыть каталог</a>
+
+{% endblock %}
