@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from .models import Employee, Quest
+from .models import Employee, Quest, Event
 from django.shortcuts import render
 
 CATALOG_LIST = {
@@ -63,6 +63,12 @@ def catalog(request):
     }
 
     return render(request, 'quest/quest_list.html', context)
+
+def event_list(request):
+    events = Event.objects.all()
+    context = {'event_list': events}
+
+    return render(request, 'quest/homework.html', context)
 
 def quest_detail(request, pk):
     quest = Quest.objects.get(id=pk)

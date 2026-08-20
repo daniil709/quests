@@ -24,6 +24,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='employee',
             name='team',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quest.team', verbose_name='Команда'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='quest_images.team', verbose_name='Команда'),
         ),
     ]
