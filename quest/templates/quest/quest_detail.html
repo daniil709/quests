@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container my-4 d-flex justify-content-center align-items-center">
     <div class="card text-center mb-3">
         <div class="card-header">
             <h2 class="card-title">{{ quest.title }}</h2>
@@ -11,10 +11,8 @@
             <p class="card-text">{{ quest.description }}</p>
             <p class="card-text">Стоимость: {{quest.cost}}</p>
             <p class="card-text">Продолжительность: {{quest.duration}}</p>
-            <div>
-                {% for time in times %}
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{ time }}</button>
-            </div>
+            {% for time in times %}
+            <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{ time }}</button>
             {% endfor %}
         </div>
     </div>
