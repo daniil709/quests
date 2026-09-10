@@ -9,15 +9,13 @@
         </div>
         <div class="card-body">
             <p class="card-text">{{ quest.description }}</p>
-            <p class="card-text">Стоимость: {{quest.event.cost}}</p>
-            <p class="card-text">Продолжительность: {{quest.event.duration}}</p>
+            <p class="card-text">Стоимость: {{quest.cost}}</p>
+            <p class="card-text">Продолжительность: {{quest.duration}}</p>
             <div>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.0}}</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.1}}</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.2}}</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.3}}</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{value.time.4}}</button>
-            </div> <!--кнопки-->
+                {% for time in times %}
+                <button type="button" class="btn btn-sm btn-outline-secondary">Бронь на {{ time }}</button>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

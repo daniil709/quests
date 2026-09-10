@@ -41,11 +41,7 @@ class Quest(models.Model):
     duration = models.DecimalField(verbose_name='Продолжительность', max_digits=5, decimal_places=2, default=1)
     cost = models.DecimalField(verbose_name='Стоимость', max_digits=10, decimal_places=2, default=0.00)
     image = models.ImageField(verbose_name='Изображение', upload_to='quest_images/', default='quest_images/default.jpg', **NULLABLE)
-    TIMES = {
-        "Утро": ["11:00", "12:00"],
-        "День": ["13:00", "17:00"],
-        "Вечер": ["18:00", "19:00"],
-    }
+    TIMES = ['11:00', '12:00', '13:00', '17:00', '18:00']
     STATUS_CHOICES = [
         ('draft', 'Черновик'),
         ('active', 'Активен'),
