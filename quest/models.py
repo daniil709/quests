@@ -3,6 +3,7 @@ from django.db import models
 NULLABLE = {'blank': True, 'null': True}
 
 
+
 class Employee(models.Model):
     name = models.CharField(max_length=50, verbose_name='Имя сотрудника')
     age = models.IntegerField(verbose_name='Возраст')

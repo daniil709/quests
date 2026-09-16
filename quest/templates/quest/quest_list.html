@@ -5,6 +5,13 @@
 <div class="album py-5">
     <div class="container">
         <h1 style="margin-bottom: 30px;">Каталог</h1>
+        <div class="m-5">
+            <form class="d-flex justify-content-center align-items-center gap-2" method="GET" action="{% url 'quest:catalog' %}">
+                <label for="name">Поиск по названию: </label>
+                <input type="text" id="name" name="quest_name">
+                <button type="submit">Поиск</button>
+            </form>
+        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {% for quest in catalog_list %}
             <div class="col mb-4">

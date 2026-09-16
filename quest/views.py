@@ -8,8 +8,16 @@ def home(request):
 
 
 def catalog(request):
+    quest_query = request.GET.get('quest_name')
+
+    if quest_query:
+        quests = Quest.objects.filter(title=quest_query)
+    else:
+        quests = Quest.objects.all()
+
     context = {
         'catalog_list': Quest.objects.all(),
+        'quests': quests,
     }
 
     return render(request, 'quest/quest_list.html', context)
