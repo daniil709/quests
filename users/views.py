@@ -8,9 +8,6 @@ from users.models import User
 
 # Create your views here.
 
-# class UserCreateView(CreateView):
-#     model = User
-    # form_class = UserCreationForm
-    # success = reverse_lazy("users:login")
+
 
 

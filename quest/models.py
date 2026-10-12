@@ -3,6 +3,19 @@ from django.db import models
 NULLABLE = {'blank': True, 'null': True}
 
 
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    pages = models.IntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    class Meta:
+        verbose_name = 'Книга'
+        verbose_name_plural = 'Книги'
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
 
 class Employee(models.Model):
     name = models.CharField(max_length=50, verbose_name='Имя сотрудника')

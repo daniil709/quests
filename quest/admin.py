@@ -1,5 +1,5 @@
 from django.contrib import admin
-from quest.models import Quest, Event, Employee
+from quest.models import Quest, Event, Employee, Book
 
 
 @admin.register(Quest)
@@ -21,3 +21,9 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'age', 'job', 'salary')
     list_filter = ('name', 'age', 'job')
     search_fields = ('name', 'age', 'salary', 'job')
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'pages', 'price')
+    list_filter = ('title', 'author', 'price')
+    search_fields = ('title', 'author', 'pages', 'price')
