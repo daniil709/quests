@@ -1,5 +1,7 @@
 from django.contrib import admin
-from quest.models import Quest, Event, Employee, Book
+
+from quest.forms import CakeForm
+from quest.models import Quest, Event, Employee, Book, Team, Cake
 
 
 @admin.register(Quest)
@@ -22,8 +24,23 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_filter = ('name', 'age', 'job')
     search_fields = ('name', 'age', 'salary', 'job')
 
+
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'pages', 'price')
     list_filter = ('title', 'author', 'price')
     search_fields = ('title', 'author', 'pages', 'price')
+
+
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'event')
+    list_filter = ('name',)
+    search_fields = ('name',)
+
+
+@admin.register(Cake)
+class CakeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'weight', 'calorie', 'cost')
+    list_filter = ('name',)
+    search_fields = ('name',)

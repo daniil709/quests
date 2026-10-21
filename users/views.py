@@ -9,5 +9,8 @@ from users.models import User
 # Create your views here.
 
 
-
+class UserCreateView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('users:login')
 

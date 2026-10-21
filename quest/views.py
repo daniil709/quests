@@ -1,11 +1,60 @@
 from django.db.models import Q
 from django.http import HttpResponse
 from .models import Employee, Quest, Event, Book
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import EventForm, TeamEventForm, CakeForm
 
 
 def home(request):
     return render(request, 'quest/index.html')
+
+
+def create_cake(request):
+    if not request.user.is_authenticated:
+        return redirect('quest:home')
+
+    if request.method == 'POST':
+        form = CakeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('quest:home')
+    else:
+        form = CakeForm()
+
+    return render(request, 'quest/cake_form.html', {'form': form})
+
+
+def assign_team_event(request):
+    if not request.user.is_authenticated:
+        return redirect('quest:home')
+
+    if request.method == 'POST':
+        form = TeamEventForm(request.POST)
+        if form.is_valid():
+            team = form.cleaned_data['team']
+            event = form.cleaned_data['event']
+            team.event = event
+            team.save()
+            return redirect('quest:home')
+    else:
+        form = TeamEventForm()
+
+    return render(request, 'quest/assign_team_event.html', {'form': form})
+
+
+def event_create(request):
+    if not request.user.is_authenticated:
+        return redirect('quest:home')
+
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('quest:events')
+    else:
+        form = EventForm()
+
+    return render(request, 'quest/event_form.html', {'form': form})
 
 
 def catalog(request):
